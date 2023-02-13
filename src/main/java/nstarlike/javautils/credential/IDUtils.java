@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class IDUtil {
+public class IDUtils {
 	public static String getRandomID(String baseID) {
 		StringBuilder sb = new StringBuilder();
 		Random r = new Random();
