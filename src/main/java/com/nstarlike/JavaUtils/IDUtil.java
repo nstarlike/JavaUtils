@@ -1,15 +1,24 @@
 package com.nstarlike.JavaUtils;
 
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class IDUtil {
-	public static String getRandomID() {
-		String id = "";
+	public static String getRandomID(String baseID) {
+		StringBuilder sb = new StringBuilder();
+		Random r = new Random();
+		for(int i=0; i<4; i++) {
+			sb.append(r.nextInt(10));
+		}
 		
-		return id;
+		return baseID + sb.toString();
 	}
 	
 	public static boolean checkID(String id, String regex) {
-		boolean ret = false;
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(id);
 		
-		return ret;
+		return m.matches();
 	}
 }
