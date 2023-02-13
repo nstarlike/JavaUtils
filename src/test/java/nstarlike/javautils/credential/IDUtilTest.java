@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import nstarlike.javautils.credential.IDUtil;
-
 public class IDUtilTest {
 	@Test
 	public void testGetRandomId() {
