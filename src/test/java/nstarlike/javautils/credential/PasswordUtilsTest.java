@@ -72,7 +72,15 @@ class PasswordUtilsTest {
 
 	@Test
 	void testIsSafePassword() {
-		fail("Not yet implemented");
+		String password = "ffsd2222saf&*(";
+		boolean isSafe = PasswordUtils.isSafePassword(password);
+		
+		assertFalse(isSafe);
+		
+		password = "qwer124&*(";
+		isSafe = PasswordUtils.isSafePassword(password);
+		
+		assertFalse(isSafe);
 	}
 
 }
