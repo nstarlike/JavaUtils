@@ -72,12 +72,20 @@ class PasswordUtilsTest {
 
 	@Test
 	void testIsSafePassword() {
+		//test a password with consecutive characters
 		String password = "ffsd2222saf&*(";
 		boolean isSafe = PasswordUtils.isSafePassword(password);
 		
 		assertFalse(isSafe);
 		
+		//test a password with consecutive characters in keyboard
 		password = "qwer124&*(";
+		isSafe = PasswordUtils.isSafePassword(password);
+		
+		assertFalse(isSafe);
+		
+		//test a short password
+		password = "327fjs^";
 		isSafe = PasswordUtils.isSafePassword(password);
 		
 		assertFalse(isSafe);

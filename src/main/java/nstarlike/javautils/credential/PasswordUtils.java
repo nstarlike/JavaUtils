@@ -103,6 +103,11 @@ public class PasswordUtils {
 				"qwer", "asdf", "zxcv", "wert", "sdfg", "xcvb"
 		};
 		
+		//return false if password's length is short
+		if(password.length() < 8) {
+			return false;
+		}
+		
 		//return false if password contains one of words
 		for(String blackList : blackLists){
 			if(password.contains(blackList)) {
