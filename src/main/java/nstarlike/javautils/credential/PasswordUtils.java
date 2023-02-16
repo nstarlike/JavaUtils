@@ -76,18 +76,18 @@ public class PasswordUtils {
 			//hash the password
 			byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
 			
-			//convert hash to digest
-			BigInteger num = new BigInteger(1, hash);
-			
-			//convert digest to hex
-			StringBuilder hexStr = new StringBuilder(num.toString(16));
-			
-			//pad with leading zero
-			while(hexStr.length() < 32) {
-				hexStr.insert(0, '0');
+			//convert hash to hex
+			StringBuilder hexStr = new StringBuilder(hash.length * 2);
+			for(int i = 0; i < hash.length; i++) {
+				String hex = Integer.toHexString(0xff & hash[i]);
+				if(hex.length() == 1) {
+					hexStr.append('0');
+				}
+				hexStr.append(hex);
 			}
 			
 			return hexStr.toString();
+			
 		}else {
 			throw new NoSuchAlgorithmException("Unsupported algorithm");
 		}
