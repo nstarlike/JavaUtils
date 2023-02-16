@@ -1,6 +1,5 @@
 package nstarlike.javautils.credential;
 
-import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -94,7 +93,23 @@ public class PasswordUtils {
 	}
 	
 	public static boolean isSafePassword(String password) {
-		boolean isSafe = false;
-		return isSafe;
+		//words not to be included
+		String[] blackLists = {
+				"1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999", "0000", 
+				"1234", "2345", "3456", "4567", "5678", "6789", "7890", 
+				"aaaa", "bbbb", "cccc", "dddd", "eeee", "ffff", "gggg", "hhhh", "iiii", "jjjj", 
+				"kkkk", "llll", "mmmm", "nnnn", "oooo", "pppp", "qqqq", "rrrr", "ssss", "tttt", 
+				"uuuu", "vvvv", "wwww", "xxxx", "yyyy", "zzzz", 
+				"qwer", "asdf", "zxcv", "wert", "sdfg", "xcvb"
+		};
+		
+		//return false if password contains one of words
+		for(String blackList : blackLists){
+			if(password.contains(blackList)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }
