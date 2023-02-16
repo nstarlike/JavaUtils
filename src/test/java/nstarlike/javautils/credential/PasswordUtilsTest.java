@@ -47,12 +47,27 @@ class PasswordUtilsTest {
 
 	@Test
 	void testEncryptPassword() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testDecryptPassword() {
-		fail("Not yet implemented");
+		String password = "hashtrial";
+		try {
+			//use SHA-256
+			String encrypted = PasswordUtils.encryptPassword(password, "SHA-256");
+			
+			assertNotNull(encrypted);
+			assertTrue(encrypted.length() == 64);
+			
+			System.out.println(encrypted);
+			
+			//use SHA-512
+			encrypted = PasswordUtils.encryptPassword(password, "SHA-512");
+			
+			assertNotNull(encrypted);
+			assertTrue(encrypted.length() == 128);
+			
+			System.out.println(encrypted);
+			
+		}catch(Exception e) {
+			fail(e.getMessage());
+		}
 	}
 
 	@Test
