@@ -1,5 +1,9 @@
 package nstarlike.javautils.credential;
 
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -65,14 +69,28 @@ public class PasswordUtils {
 		return password.toString();
 	}
 	
-	public static String encryptPassword(String password, String algorithm) {
-		String encrypted = "";
-		return encrypted;
-	}
-	
-	public static String decryptPassword(String password, String algorithm) {
-		String decrypted = "";
-		return decrypted;
+	public static String encryptPassword(String password, String algorithm) throws NoSuchAlgorithmException {
+		if(algorithm.startsWith("SHA-")) {
+			//instance for hashing using algorithm
+			MessageDigest md = MessageDigest.getInstance(algorithm);
+			//hash the password
+			byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
+			
+			//convert hash to digest
+			BigInteger num = new BigInteger(1, hash);
+			
+			//convert digest to hex
+			StringBuilder hexStr = new StringBuilder(num.toString(16));
+			
+			//pad with leading zero
+			while(hexStr.length() < 32) {
+				hexStr.insert(0, '0');
+			}
+			
+			return hexStr.toString();
+		}else {
+			throw new NoSuchAlgorithmException("Unsupported algorithm");
+		}
 	}
 	
 	public static boolean isSafePassword(String password) {
