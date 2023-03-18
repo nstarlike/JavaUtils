@@ -11,11 +11,11 @@ public class PasswordUtils {
 	public static String getRandomPassword(int size, boolean hasUpper, boolean hasNum, boolean hasSpecial) {
 		//variable declarations
 		StringBuilder password = new StringBuilder();
-		char[] lowers = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 
+		final char[] lowers = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 
 							'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-		char[] uppers = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 
+		final char[] uppers = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 
 							'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-		char[] specials = {'~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '?'};
+		final char[] specials = {'~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '?'};
 		List<String> chTypes = new ArrayList<String>();
 		chTypes.add("lower");
 		if(hasUpper) {
@@ -94,7 +94,7 @@ public class PasswordUtils {
 	
 	public static boolean isSafePassword(String password) {
 		//words not to be included
-		String[] blackLists = {
+		final String[] blackLists = {
 				"1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999", "0000", 
 				"1234", "2345", "3456", "4567", "5678", "6789", "7890", 
 				"aaaa", "bbbb", "cccc", "dddd", "eeee", "ffff", "gggg", "hhhh", "iiii", "jjjj", 
