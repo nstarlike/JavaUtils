@@ -1,8 +1,5 @@
 package nstarlike.javautils.web.pagination;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Pagination {
 	private int pageSize = 10;
 	private int pageListSize = 10;
@@ -14,12 +11,14 @@ public class Pagination {
 	private int endPage;
 	private int nextPage;
 	private int lastPage;
-	private int total;
-	private int startNo;
-	private int endNo;
+	private long total;
+	private long startNo;
+	private long endNo;
 
 	public Pagination(int pageNo) {
 		this.pageNo = pageNo;
+		
+		calculateIndexes();
 	}
 
 	public int getPageSize() {
@@ -102,27 +101,27 @@ public class Pagination {
 		this.lastPage = lastPage;
 	}
 
-	public int getTotal() {
+	public long getTotal() {
 		return total;
 	}
 
-	public void setTotal(int total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 
-	public int getStartNo() {
+	public long getStartNo() {
 		return startNo;
 	}
 
-	public void setStartNo(int startNo) {
+	public void setStartNo(long startNo) {
 		this.startNo = startNo;
 	}
 
-	public int getEndNo() {
+	public long getEndNo() {
 		return endNo;
 	}
 
-	public void setEndNo(int endNo) {
+	public void setEndNo(long endNo) {
 		this.endNo = endNo;
 	}
 
@@ -134,11 +133,11 @@ public class Pagination {
 			throw new PaginationInvalidValueException("The pageSize variable value is not valid, " + pageSize);
 		}
 
-		this.startNo = (pageNo - 1) * pageSize;
+		this.startNo = (pageNo - 1) * pageSize + 1;
 		this.endNo = startNo + pageSize - 1;
 	}
 
-	public void calculate(int total) throws PaginationInvalidValueException {
+	public void calculate(long total) throws PaginationInvalidValueException {
 		calculateIndexes();
 		
 		if (total < 0) {
@@ -170,7 +169,7 @@ public class Pagination {
 
 		
 		if (this.total % this.pageSize == 0) {
-			this.totalPage = this.total / this.pageSize;
+			this.totalPage = (int)(this.total / (long)this.pageSize);
 		} else {
 			this.totalPage = (int) (this.total / this.pageSize) + 1;
 		}
