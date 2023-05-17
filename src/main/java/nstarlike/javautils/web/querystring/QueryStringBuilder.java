@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.StringJoiner;
 
 public class QueryStringBuilder {
-	private List<String> whiteList;
+	private List<String> whiteList = new ArrayList<>();
 	private String idParamName;
 	private String pageParamName;
 	
@@ -41,6 +41,10 @@ public class QueryStringBuilder {
 	
 	public void setPageParamName(String pageParamName) {
 		this.pageParamName = pageParamName;
+	}
+	
+	public void add(String whiteEntry) {
+		this.whiteList.add(whiteEntry);
 	}
 
 	public String buildQueryString(Map<String, String> params, List<String> excludes, String prefix) {
