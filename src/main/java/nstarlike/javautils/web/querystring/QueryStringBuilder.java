@@ -50,10 +50,12 @@ public class QueryStringBuilder {
 	public String buildQueryString(Map<String, String> params, List<String> excludes, String prefix) {
 		StringJoiner sj = new StringJoiner("&");
 		
-		Set<String> keys = params.keySet();
-		for(String key : keys) {
-			if(whiteList.contains(key) && !excludes.contains(key)) {
-				sj.add(key + "=" + params.get(key));
+		if(params != null) {
+			Set<String> keys = params.keySet();
+			for(String key : keys) {
+				if(whiteList.contains(key) && (excludes == null || !excludes.contains(key))) {
+					sj.add(key + "=" + params.get(key));
+				}
 			}
 		}
 		
@@ -79,14 +81,27 @@ public class QueryStringBuilder {
 	}
 	
 	public String attachListQueryString(Map<String, String> params) {
+		if(this.idParamName == null || this.idParamName.isEmpty()) {
+			throw new QueryStringParamNameException("The parameter name for an id is not valid, " + this.idParamName);
+		}
+		
 		List<String> excludes = new ArrayList<>();
 		excludes.add(this.idParamName);
 		return buildQueryString(params, excludes, "?");
 	}
 	
 	public String addPageQueryString(Map<String, String> params) {
+		if(this.pageParamName == null || this.pageParamName.isEmpty()) {
+			throw new QueryStringParamNameException("The parameter name for a page number is not valid, " + this.pageParamName);
+		}
 		List<String> excludes = new ArrayList<>();
 		excludes.add(this.pageParamName);
 		return buildQueryString(params, excludes, "&");
+	}
+
+	@Override
+	public String toString() {
+		return "QueryStringBuilder [whiteList=" + whiteList + ", idParamName=" + idParamName + ", pageParamName="
+				+ pageParamName + "]";
 	}
 }
