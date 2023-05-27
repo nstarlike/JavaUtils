@@ -69,7 +69,7 @@ public class QueryStringBuilder {
 	}
 	
 	public String buildQueryString(Map<String, String> params) {
-		return buildQueryString(params, null, null);
+		return buildQueryString(params, null, "");
 	}
 	
 	public String attachQueryString(Map<String, String> params) {
