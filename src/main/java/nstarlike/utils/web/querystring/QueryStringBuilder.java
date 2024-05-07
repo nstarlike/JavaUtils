@@ -1,4 +1,4 @@
-package nstarlike.javautils.web.querystring;
+package nstarlike.utils.web.querystring;
 
 import java.util.ArrayList;
 import java.util.List;

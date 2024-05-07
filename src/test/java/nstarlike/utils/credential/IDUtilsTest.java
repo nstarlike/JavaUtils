@@ -1,9 +1,11 @@
-package nstarlike.javautils.credential;
+package nstarlike.utils.credential;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+
+import nstarlike.utils.credential.IDUtils;
 
 public class IDUtilsTest {
 	@Test

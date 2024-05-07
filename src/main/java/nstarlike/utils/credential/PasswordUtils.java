@@ -1,4 +1,4 @@
-package nstarlike.javautils.credential;
+package nstarlike.utils.credential;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package nstarlike.javautils.web.querystring;
+package nstarlike.utils.web.querystring;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,6 +12,9 @@ import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import nstarlike.utils.web.querystring.QueryStringBuilder;
+import nstarlike.utils.web.querystring.QueryStringParamNameException;
 
 class QueryStringBuilderTest {
 	private QueryStringBuilder builder;

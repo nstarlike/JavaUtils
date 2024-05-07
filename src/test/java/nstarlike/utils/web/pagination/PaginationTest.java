@@ -1,8 +1,11 @@
-package nstarlike.javautils.web.pagination;
+package nstarlike.utils.web.pagination;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import nstarlike.utils.web.pagination.Pagination;
+import nstarlike.utils.web.pagination.PaginationInvalidValueException;
 
 class PaginationTest {
 	private Pagination pagination;
@@ -43,8 +46,8 @@ class PaginationTest {
 		
 		System.out.println(p.toString());
 		
-		assertTrue(p.getStartNo() == 0);
-		assertTrue(p.getEndNo() == 9);
+		assertTrue(p.getStartNo() == 1);
+		assertTrue(p.getEndNo() == 10);
 	}
 	
 	@Test
@@ -57,8 +60,8 @@ class PaginationTest {
 		
 		System.out.println(p.toString());
 		
-		assertTrue(p.getStartNo() == 90);
-		assertTrue(p.getEndNo() == 99);
+		assertTrue(p.getStartNo() == 91);
+		assertTrue(p.getEndNo() == 100);
 	}
 	
 	@Test
@@ -71,8 +74,8 @@ class PaginationTest {
 		
 		System.out.println(p.toString());
 		
-		assertTrue(p.getStartNo() == 100);
-		assertTrue(p.getEndNo() == 109);
+		assertTrue(p.getStartNo() == 101);
+		assertTrue(p.getEndNo() == 110);
 	}
 	
 	@Test
