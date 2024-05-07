@@ -1,8 +1,10 @@
-package nstarlike.javautils.credential;
+package nstarlike.utils.credential;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import nstarlike.utils.credential.PasswordUtils;
 
 class PasswordUtilsTest {
 

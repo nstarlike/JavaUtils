@@ -1,4 +1,4 @@
-package nstarlike.javautils.web.pagination;
+package nstarlike.utils.web.pagination;
 
 public class Pagination {
 	private int pageSize = 10;

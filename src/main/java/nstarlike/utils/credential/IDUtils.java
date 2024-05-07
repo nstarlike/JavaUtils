@@ -1,4 +1,4 @@
-package nstarlike.javautils.credential;
+package nstarlike.utils.credential;
 
 import java.util.Random;
 import java.util.regex.Matcher;
