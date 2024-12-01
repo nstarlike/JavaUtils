@@ -11,6 +11,19 @@ public class FixIDRecommender implements IDRecommender {
 	private List<String> ids;
 
 	public FixIDRecommender(String baseId) {
+		// Validate the id
+		if(baseId == null) {
+			throw new RuntimeException("ID is null.");
+		}
+		
+		if(baseId.isBlank()) {
+			throw new RuntimeException("ID is blank.");
+		}
+		
+		if(baseId.matches("^[0-9].*$")) {
+			throw new RuntimeException("ID starts with a number.");
+		}
+		
 		this.baseId = baseId;
 		this.fixes = new ArrayList<String>();
 		this.ids = new ArrayList<String>();
@@ -30,7 +43,6 @@ public class FixIDRecommender implements IDRecommender {
 		this.fixes.add(fullYear);
 		
 		this.fixes.forEach((entry) -> {
-			ids.add(entry + this.baseId);
 			ids.add(this.baseId + entry);
 		});
 	}
