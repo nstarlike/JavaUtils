@@ -2,13 +2,10 @@ package nstarlike.utils.credential;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
-import nstarlike.utils.credential.IDUtils;
 
 public class IDUtilsTest {
 	@Test
@@ -36,6 +33,8 @@ public class IDUtilsTest {
 		List<String> recommended = IDUtils.getRecommendedIDs(recommender, refiner);
 		
 		assertNotNull(recommended);
-		System.out.println("recommended=" + recommended.toString());
+		for(String id : recommended) {
+			assertTrue(recommender.getIds().contains(id));
+		}
 	}
 }
