@@ -3,11 +3,11 @@ package nstarlike.utils.credential;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBIDRefiner implements IDRefiner {
-	private IDChecker iDChecker;
+public class DbIdRefiner implements IdRefiner {
+	private IdChecker idChecker;
 	
-	public DBIDRefiner(IDChecker iDChecker) {
-		this.iDChecker = iDChecker;
+	public DbIdRefiner(IdChecker iDChecker) {
+		this.idChecker = iDChecker;
 	}
 	
 	@Override
@@ -17,7 +17,7 @@ public class DBIDRefiner implements IDRefiner {
 			candidates.add(id);
 		}
 		
-		List<String> checkedIds = this.iDChecker.getCheckedIds(candidates);
+		List<String> checkedIds = this.idChecker.getCheckedIds(candidates);
 		candidates.removeAll(checkedIds);
 		return candidates;
 	}

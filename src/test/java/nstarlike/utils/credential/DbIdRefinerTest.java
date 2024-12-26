@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 
-class DBIDRefinerTest {
-	private IDChecker checker;
-	private IDRefiner refiner;
+class DbIdRefinerTest {
+	private IdChecker checker;
+	private IdRefiner refiner;
 	
 	@BeforeEach
 	void initAll() {
-		this.checker = new DBIDChecker();
-		this.refiner = new DBIDRefiner(checker);
+		this.checker = new DbIdChecker();
+		this.refiner = new DbIdRefiner(checker);
 	}
 	
 	@Test

@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class IDUtilsTest {
+public class IdUtilsTest {
 	@Test
 	public void testGetRandomId() {
-		String id = IDUtils.getRandomID("test");
+		String id = IdUtils.getRandomId("test");
 		
 		assertNotNull(id);
 		assertTrue(id.length() > 4);
@@ -20,17 +20,17 @@ public class IDUtilsTest {
 	public void testCheckId() {
 		String id = "abc1234";
 		String regex = "^[a-z0-9]{6,20}$";
-		boolean ret = IDUtils.checkID(id, regex);
+		boolean ret = IdUtils.checkId(id, regex);
 		
 		assertTrue(ret);
 	}
 	
 	@Test
 	public void testGetRecommendedIDs() {
-		IDRecommender recommender = new FixIDRecommender("testid");
-		IDChecker checker = new DBIDChecker();
-		IDRefiner refiner = new DBIDRefiner(checker);
-		List<String> recommended = IDUtils.getRecommendedIDs(recommender, refiner);
+		IdRecommender recommender = new FixIdRecommender("testid");
+		IdChecker checker = new DbIdChecker();
+		IdRefiner refiner = new DbIdRefiner(checker);
+		List<String> recommended = IdUtils.getRecommendedIds(recommender, refiner);
 		
 		assertNotNull(recommended);
 		for(String id : recommended) {

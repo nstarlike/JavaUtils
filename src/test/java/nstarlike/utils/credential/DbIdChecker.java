@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DBIDChecker implements IDChecker {
+public class DbIdChecker implements IdChecker {
 
 	@Override
 	public List<String> getCheckedIds(List<String> ids) {

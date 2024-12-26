@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
-public class FixIDRecommender implements IDRecommender {
+public class FixIdRecommender implements IdRecommender {
 	private String baseId;
 	private List<String> fixes;
 	private List<String> ids;
 
-	public FixIDRecommender(String baseId) {
+	public FixIdRecommender(String baseId) {
 		// Validate the id
 		if(baseId == null) {
 			throw new RuntimeException("ID is null.");
